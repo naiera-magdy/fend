@@ -11,7 +11,10 @@
  * 
  * JS Standard: ESlint
  * 
+ * @author Naiera Magdy <naiera.refaey99@eng-st.cu.edu.eg>
+ * 
 */
+const startTime = performance.now();
 
 /**
  * Define Global Variables
@@ -35,7 +38,6 @@ function ActiveElement() {
     const position = section.getBoundingClientRect();
     if (position.top >= 0 && (position.bottom <= (window.innerHeight || document.documentElement.clientHeight))) {
       section.classList.add('active');
-      console.log(navLinks);
       for (navLink of navLinks) {
         if(navLink.getAttribute('src') === '#'+section.id) {
           navLink.classList.add('active__link');
@@ -83,13 +85,10 @@ function buildMenu() {
  * 
  */
 
-
-// Scroll to anchor ID using scrollTO event
-
 // Build menu 
 buildMenu();
 
-// build the nav
+// Build the nav
 document.querySelector('#navbar__list').appendChild(frag);
 
 /**
@@ -105,3 +104,7 @@ nav.addEventListener('click', (event) => {
 
 // Set as active section on scroll event
 document.addEventListener('scroll',scrollFunction);
+
+// Calculate Performance
+const endTime = performance.now();
+console.log('Performance: ', endTime-startTime);
