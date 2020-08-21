@@ -88,7 +88,7 @@ section {
     color: white;
 }
 
-.navbar__menu li:hover, .active__link {
+.navbar__menu li:hover, .active__link, #Totop{
     padding: 0.5em;
     background: #FFF;
     color: #204060 !important;

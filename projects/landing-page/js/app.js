@@ -14,13 +14,13 @@
  * @author Naiera Magdy <naiera.refaey99@eng-st.cu.edu.eg>
  * 
 */
-const startTime = performance.now();
 
 /**
  * Define Global Variables
  * 
  */
 
+const startTime = performance.now();
 const sections = document.querySelectorAll('section');
 const frag = document.createDocumentFragment();
 const nav = document.querySelector('nav');
@@ -32,11 +32,13 @@ let navLinks = [];
  * 
  */
 
-// Add class 'active' to section when near top of viewport
+/**
+ *  Add class 'active' to section when near top of viewport
+ */
 function ActiveElement() {
   for (section of sections) {
     const position = section.getBoundingClientRect();
-    if (position.top >= 0 && (position.bottom <= (window.innerHeight || document.documentElement.clientHeight))) {
+    if (position.top >= 0 && (position.bottom <= (window.innerHeight || document.documentElement.clientHeight)+300)) {
       section.classList.add('active');
       for (navLink of navLinks) {
         if(navLink.getAttribute('src') === '#'+section.id) {
@@ -56,16 +58,24 @@ function ActiveElement() {
   }
 }
 
+/**
+ * Check if the user is scrolling then style the nav accordingly 
+ */
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     document.querySelector(".navbar__menu").style.backgroundColor = "#DDDDDD80";
+    document.querySelector('#Totop').style.display = 'inline-block';
   } else {
     document.querySelector(".navbar__menu").style.backgroundColor = "#00000000";
+    document.querySelector('#Totop').style.display = 'none';    
   }
   // Set sections as active
   ActiveElement();
 }
 
+/**
+ * Create elements of the nav then append it to the Document Fragment
+ */
 function buildMenu() {
   for (const section of sections) {
     if (section.style.display === 'none') {
@@ -99,7 +109,13 @@ document.querySelector('#navbar__list').appendChild(frag);
 
 // Scroll to section on link click
 nav.addEventListener('click', (event) => {
-  window.location.href = event.target.getAttribute('src');
+  const target = event.target.getAttribute('src');
+  if(target === 'body') {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  } else {
+    document.querySelector(target).scrollIntoView();
+  }
 });
 
 // Set as active section on scroll event

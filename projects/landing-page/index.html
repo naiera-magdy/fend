@@ -8,11 +8,13 @@
   <!-- Load Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
   <link href="css/styles.css" rel="stylesheet">
+  <!-- Include script file -->
   <script></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const sc = document.querySelector('script');
       sc.setAttribute('src','./js/app.js');
+      document.querySelector('#Totop').style.display = 'none';    
     });
   </script>
 </head>
@@ -22,7 +24,9 @@
   <header class="page__header">
     <nav class="navbar__menu">
       <!-- Navigation starts as empty UL that will be populated with JS -->
-      <ul id="navbar__list"></ul>
+      <ul id="navbar__list">
+        <li id='Totop' src="body">To Top ↑</li>
+      </ul>
     </nav>
   </header>
   <main>

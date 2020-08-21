@@ -1,13 +1,20 @@
 # Landing Page Project
+### The landing page project is a simple Javascript project to practice basic concepts that I have learned through the first part of the course.
 
-## Table of Contents
+## Main Elements
+* Dynamically created Navbar menu
+* Scroll Top button appears after scrolling
+* Initially 4 Sections
 
-* [Instructions](#instructions)
+## Main Features
+* Clicking on a navigation item should scroll to the appropriate section of the page
+* Scrolling Functionalities
+* Active Element Styling
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Folder Structure
+* css
+    * style.css
+* js
+    * app.js
+* index.html
+* README .md
